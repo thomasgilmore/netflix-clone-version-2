@@ -1,8 +1,11 @@
-import API from "./components/API";
+import './App.css'
+import Navbar from './components/Navbar';
+import API from './components/API';
 
 function App() {
   return (
-    <div>
+    <div className="App">
+      <Navbar />
       <API />
     </div>
   );
