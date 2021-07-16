@@ -68,7 +68,7 @@ export default function API() {
                 
                 let NetflixOriginal = [];
 
-                allDataNetflixOriginal.map((movie) => {
+                allDataNetflixOriginal.forEach((movie) => {
                   let movieTitle = movie.name || movie.title;
                   let moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
                   let movieId = movie.id;
@@ -77,7 +77,7 @@ export default function API() {
 
                 let NetflixComedies = [];
 
-                allDataComedies.map((movie) => {
+                allDataComedies.forEach((movie) => {
                   let movieTitle = movie.name || movie.title;
                   let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
                   let movieId = movie.id;
@@ -86,7 +86,7 @@ export default function API() {
 
                 let NetflixDramas = [];
 
-                allDataDramas.map((movie) => {
+                allDataDramas.forEach((movie) => {
                   let movieTitle = movie.name || movie.title;
                   let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
                   let movieId = movie.id;
@@ -95,7 +95,7 @@ export default function API() {
 
                 let NetflixTVMovies = [];
 
-                allDataTVMovies.map((movie) => {
+                allDataTVMovies.forEach((movie) => {
                   let movieTitle = movie.name || movie.title;
                   let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
                   let movieId = movie.id;
@@ -104,7 +104,7 @@ export default function API() {
                 
                 let NetflixMysteries = [];
 
-                allDataMysteries.map((movie) => {
+                allDataMysteries.forEach((movie) => {
                   let movieTitle = movie.name || movie.title;
                   let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
                   let movieId = movie.id;
