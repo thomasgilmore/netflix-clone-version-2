@@ -55,15 +55,23 @@ export default function API() {
                 
                 
                 
-                for (var j = 0; j < 1; j++) {
-                  console.log('working');
-                  var movieTitle = allDataNetflixTrending[0].name || allDataNetflixTrending[0].title;
-                  var movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[0].backdrop_path;
-                  var movieId = allDataNetflixTrending[0].id;
+                for (let i = 0; i < 1; i++) {
+                  let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
+                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                  let movieId = allDataNetflixTrending[i].id;
                   setMainMovie({ movieTitle, movieBackdrop, movieId })
                 }
-                
-                setNetflixTrending(allDataNetflixTrending);
+
+                let NetflixTrending = [];
+
+                for (let i = 1; i < allDataNetflixTrending.length; i++) {
+                  let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
+                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                  let movieId = allDataNetflixTrending[i].id;
+                  NetflixTrending.push({ movieTitle, movieBackdrop, movieId });
+                }
+                console.log(NetflixTrending);
+                setNetflixTrending(NetflixTrending);
                 setNetflixOriginal(allDataNetflixOriginal);
                 setComedies(allDataComedies);
                 setDramas(allDataDramas);
@@ -96,7 +104,9 @@ export default function API() {
         <section className="Section">
           <h3 className="Title">Trending Now</h3>
           <div className="MoviesAndTVShows">
-
+            {netflixTrending.map((movie) => {
+                return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
+              })}
           </div>
         </section>
         
