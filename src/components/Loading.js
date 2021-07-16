@@ -1,6 +1,6 @@
 import React from 'react';
 import './loading.css';
-import { AiOutlineLoading3Quarters, AiOutlineLoading } from "react-icons/ai";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function Loading() {
     return (
