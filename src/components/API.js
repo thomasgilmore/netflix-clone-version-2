@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import './api.css';
 import axios from 'axios';
+import MainMovie from './MainMovie';
+import MovieCard from './MovieCard';
 
 require('dotenv').config()
 
@@ -31,13 +34,13 @@ export default function API() {
         const getMysteriesAPI = axios.get(mysteriesAPI);
         axios.all([getNetflixTrendingAPI, getNetflixOriginalAPI, getComediesAPI, getDramasAPI, getAdventuresAPI, getTVMoviesAPI, getMysteriesAPI]).then(
             axios.spread((...allData) => {
-                const allDataNetflixTrending = allData[0].data;
-                const allDataNetflixOriginal = allData[1].data;
-                const allDataComedies = allData[2].data;
-                const allDataDramas = allData[3].data;
-                const allDataAdventures = allData[4].data;
-                const allDataTVMovies = allData[5].data;
-                const allDataMysteries = allData[6].data;
+                const allDataNetflixTrending = allData[0].data.results;
+                const allDataNetflixOriginal = allData[1].data.results;
+                const allDataComedies = allData[2].data.results;
+                const allDataDramas = allData[3].data.results;
+                const allDataAdventures = allData[4].data.results;
+                const allDataTVMovies = allData[5].data.results;
+                const allDataMysteries = allData[6].data.results;
 
                 console.log(allDataNetflixTrending);
                 console.log(allDataNetflixOriginal);
@@ -46,6 +49,24 @@ export default function API() {
                 console.log(allDataAdventures);
                 console.log(allDataTVMovies);
                 console.log(allDataMysteries);
+                
+                
+                
+                for (var j = 0; j < 1; j++) {
+                  console.log('working');
+                  var movieTitle = allDataNetflixTrending[0].name || allDataNetflixTrending[0].title;
+                  var movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[0].backdrop_path;
+                  var movieId = allDataNetflixTrending[0].id;
+                  setMainMovie({ movieTitle, movieBackdrop, movieId })
+                }
+                
+                setNetflixTrending(allDataNetflixTrending);
+                setNetflixOriginal(allDataNetflixOriginal);
+                setComedies(allDataComedies);
+                setDramas(allDataDramas);
+                setAdventures(allDataAdventures);
+                setTVMovies(allDataTVMovies);
+                setMysteries(allDataMysteries);
             })
         )
     }
@@ -53,10 +74,49 @@ export default function API() {
     useEffect(() => {
         fetchData()
     }, [])
-
     return (
-        <div>
-            Test
-        </div>
+      <div>
+        {mainMovie ? 
+          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />
+          : <MainMovie key={0} movieTitle={null} movieBackdrop={null} />}
+        <section className="netflixOrginalsSection">
+          <h3 className="netflixOrginalsTitle">Netflix Orginals</h3>
+          <div className="netflixOrginalsMoviesAndTVShows">
+
+          </div>
+        </section>
+        <section className="Section">
+          <h3 className="Title">Trending Now</h3>
+          <div className="MoviesAndTVShows">
+
+          </div>
+        </section>
+        
+        <section className="Section">
+          <h3 className="Title">Comedies</h3>
+          <div className="MoviesAndTVShows">
+
+          </div>
+        </section>
+        <section className="Section">
+          <h3 className="Title">Dramas</h3>
+          <div className="MoviesAndTVShows">
+
+          </div>
+        </section>
+        <section className="Section">
+          <h3 className="Title">Mystery</h3>
+          <div className="MoviesAndTVShows">
+
+          </div>
+        </section>
+        <section className="Section">
+          <h3 className="Title">TV Movies</h3>
+          <div className="MoviesAndTVShows">
+
+          </div>
+        </section>
+  
+      </div>
     )
 }
