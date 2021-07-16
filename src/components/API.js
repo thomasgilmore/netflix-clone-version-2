@@ -80,9 +80,18 @@ export default function API() {
                   NetflixOriginal.push({ movieTitle, moviePoster, movieId });
                 })
 
+                let NetflixComedies = [];
+
+                allDataComedies.map((movie) => {
+                  let movieTitle = movie.name || movie.title;
+                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                  let movieId = movie.id;
+                  NetflixComedies.push({ movieTitle, movieBackdrop, movieId });
+                })
+
                 setNetflixTrending(NetflixTrending);
                 setNetflixOriginal(NetflixOriginal);
-                setComedies(allDataComedies);
+                setComedies(NetflixComedies);
                 setDramas(allDataDramas);
                 setAdventures(allDataAdventures);
                 setTVMovies(allDataTVMovies);
@@ -124,7 +133,9 @@ export default function API() {
         <section className="Section">
           <h3 className="Title">Comedies</h3>
           <div className="MoviesAndTVShows">
-
+            {comedies.map((movie) => {
+              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
+            })}
           </div>
         </section>
         <section className="Section">
