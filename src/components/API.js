@@ -38,8 +38,8 @@ export default function API() {
                 const allDataNetflixOriginal = allData[1].data.results;
                 const allDataComedies = allData[2].data.results;
                 const allDataDramas = allData[3].data.results;
-                const allDataTVMovies = allData[5].data.results;
-                const allDataMysteries = allData[6].data.results;
+                const allDataTVMovies = allData[4].data.results;
+                const allDataMysteries = allData[5].data.results;
 
                 console.log(allDataNetflixTrending);
                 console.log(allDataNetflixOriginal);
