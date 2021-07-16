@@ -98,13 +98,31 @@ export default function API() {
                   NetflixDramas.push({ movieTitle, movieBackdrop, movieId });
                 })
 
+                let NetflixTVMovies = [];
+
+                allDataTVMovies.map((movie) => {
+                  let movieTitle = movie.name || movie.title;
+                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                  let movieId = movie.id;
+                  NetflixTVMovies.push({ movieTitle, movieBackdrop, movieId });
+                })
+                
+                let NetflixMysteries = [];
+
+                allDataMysteries.map((movie) => {
+                  let movieTitle = movie.name || movie.title;
+                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                  let movieId = movie.id;
+                  NetflixMysteries.push({ movieTitle, movieBackdrop, movieId });
+                })
+
                 setNetflixTrending(NetflixTrending);
                 setNetflixOriginal(NetflixOriginal);
                 setComedies(NetflixComedies);
                 setDramas(NetflixDramas);
                 setAdventures(allDataAdventures);
-                setTVMovies(allDataTVMovies);
-                setMysteries(allDataMysteries);
+                setTVMovies(NetflixTVMovies);
+                setMysteries(NetflixMysteries);
                 setTimeout(function() {
                   setIsLoading(false);
                 }, 500);
@@ -158,13 +176,17 @@ export default function API() {
         <section className="Section">
           <h3 className="Title">Mystery</h3>
           <div className="MoviesAndTVShows">
-
+            {mysteries.map((movie) => {
+              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
+            })}
           </div>
         </section>
         <section className="Section">
           <h3 className="Title">TV Movies</h3>
           <div className="MoviesAndTVShows">
-
+            {tvMovies.map((movie) => {
+              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
+            })}
           </div>
         </section>
   
