@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './api.css';
 import axios from 'axios';
+import Loading from './Loading';
+import Navbar from './Navbar';
 import MainMovie from './MainMovie';
 import MovieCard from './MovieCard';
 
 require('dotenv').config()
 
 export default function API() {
+    const [isLoading, setIsLoading] = useState(true);
     const [netflixTrending, setNetflixTrending] = useState([]);
     const [mainMovie, setMainMovie] = useState([]);
     const [netflixOriginal, setNetflixOriginal] = useState([]);
@@ -67,6 +70,9 @@ export default function API() {
                 setAdventures(allDataAdventures);
                 setTVMovies(allDataTVMovies);
                 setMysteries(allDataMysteries);
+                setTimeout(function() {
+                  setIsLoading(false);
+                }, 500);
             })
         )
     }
@@ -76,9 +82,11 @@ export default function API() {
     }, [])
     return (
       <div>
-        {mainMovie ? 
-          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />
-          : <MainMovie key={0} movieTitle={null} movieBackdrop={null} />}
+        {isLoading ? null : <Navbar />}
+
+        {isLoading ? 
+          <Loading /> :
+          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />}
         <section className="netflixOrginalsSection">
           <h3 className="netflixOrginalsTitle">Netflix Orginals</h3>
           <div className="netflixOrginalsMoviesAndTVShows">
