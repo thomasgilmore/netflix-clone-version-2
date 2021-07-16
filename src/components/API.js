@@ -70,9 +70,18 @@ export default function API() {
                   let movieId = allDataNetflixTrending[i].id;
                   NetflixTrending.push({ movieTitle, movieBackdrop, movieId });
                 }
-                console.log(NetflixTrending);
+                
+                let NetflixOriginal = [];
+
+                allDataNetflixOriginal.map((movie) => {
+                  let movieTitle = movie.name || movie.title;
+                  let moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+                  let movieId = movie.id;
+                  NetflixOriginal.push({ movieTitle, moviePoster, movieId });
+                })
+
                 setNetflixTrending(NetflixTrending);
-                setNetflixOriginal(allDataNetflixOriginal);
+                setNetflixOriginal(NetflixOriginal);
                 setComedies(allDataComedies);
                 setDramas(allDataDramas);
                 setAdventures(allDataAdventures);
@@ -96,9 +105,11 @@ export default function API() {
           <Loading /> :
           <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />}
         <section className="netflixOrginalsSection">
-          <h3 className="netflixOrginalsTitle">Netflix Orginals</h3>
+          <h3 className="netflixOrginalsTitle">Netflix Originals</h3>
           <div className="netflixOrginalsMoviesAndTVShows">
-
+            {netflixOriginal.map((movie) => {
+              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.moviePoster} />
+            })}
           </div>
         </section>
         <section className="Section">
