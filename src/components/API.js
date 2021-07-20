@@ -10,6 +10,7 @@ import Netflix from './Netflix';
 require('dotenv').config()
 
 export default function API() {
+    const [isLoading, setIsLoading] = useState(true);
     const [netflixTrending, setNetflixTrending] = useState([]);
     const [mainMovie, setMainMovie] = useState([]);
     const [netflixOriginal, setNetflixOriginal] = useState([]);
@@ -117,6 +118,9 @@ export default function API() {
                 setDramas(NetflixDramas);
                 setTVMovies(NetflixTVMovies);
                 setMysteries(NetflixMysteries);
+                setTimeout(function() {
+                  setIsLoading(false);
+                }, 500);
             })
         )
     }
@@ -126,12 +130,12 @@ export default function API() {
     }, [])
     return (
       <div>
-        {netflixTrending && netflixOriginal && mainMovie && comedies && dramas && tvMovies && mysteries ?
+        {isLoading ? <Loading /> :
         <Netflix mainMovie={mainMovie} netflixOriginal={netflixOriginal}
         netflixTrending={netflixTrending} comedies={comedies}
         dramas={dramas} mysteries={mysteries}
         tvMovies={tvMovies} /> 
-      : <Loading /> }
+      }
   
       </div>
     )
