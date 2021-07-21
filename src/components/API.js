@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Loading from './Loading';
-import Netflix from './Netflix';
+
+import loadable from '@loadable/component';
+
+const Netflix = loadable(() => import('./Netflix'));
+const Loading = loadable(() => import('./Loading'));
 
 require('dotenv').config()
 

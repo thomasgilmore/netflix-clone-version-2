@@ -1,9 +1,6 @@
 import React from 'react';
 import './loading.css';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import loadable from '@loadable/component';
-
-const Netflix = loadable(() => import('./Netflix'));
 
 export default function Loading() {
     return (
