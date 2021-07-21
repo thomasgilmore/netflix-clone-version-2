@@ -9,7 +9,7 @@ import MovieCard from './MovieCard';
 require('dotenv').config()
 
 export default function API() {
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
     const [netflixTrending, setNetflixTrending] = useState([]);
     const [mainMovie, setMainMovie] = useState([]);
     const [netflixOriginal, setNetflixOriginal] = useState([]);
@@ -131,9 +131,9 @@ export default function API() {
                 setDramas(NetflixDramas);
                 setTVMovies(NetflixTVMovies);
                 setMysteries(NetflixMysteries);
-                setTimeout(function() {
-                  setIsLoading(false);
-                }, 500);
+                // setTimeout(function() {
+                //   setIsLoading(false);
+                // }, 500);
             })
         )
     }
@@ -143,11 +143,10 @@ export default function API() {
     }, [])
     return (
       <div>
-        {isLoading ? null : <Navbar />}
+        <Navbar />
 
-        {isLoading ? 
-          <Loading /> :
-          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />}
+        
+          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />
         <section className="netflixOrginalsSection">
           <h3 className="netflixOrginalsTitle">Netflix Originals</h3>
           <div className="netflixOrginalsMoviesAndTVShows">
