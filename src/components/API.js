@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './api.css';
 import axios from 'axios';
-// import Loading from './Loading';
-import Navbar from './Navbar';
-import MainMovie from './MainMovie';
-import MovieCard from './MovieCard';
+import Loading from './Loading';
+// import Navbar from './Navbar';
+// import MainMovie from './MainMovie';
+// import MovieCard from './MovieCard';
+import Netflix from './Netflix';
 
 require('dotenv').config()
 
 export default function API() {
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [netflixTrending, setNetflixTrending] = useState([]);
     const [mainMovie, setMainMovie] = useState([]);
     const [netflixOriginal, setNetflixOriginal] = useState([]);
@@ -131,9 +132,9 @@ export default function API() {
                 setDramas(NetflixDramas);
                 setTVMovies(NetflixTVMovies);
                 setMysteries(NetflixMysteries);
-                // setTimeout(function() {
-                //   setIsLoading(false);
-                // }, 500);
+                setTimeout(function() {
+                  setIsLoading(false);
+                }, 500);
             })
         )
     }
@@ -143,59 +144,12 @@ export default function API() {
     }, [])
     return (
       <div>
-        <Navbar />
-
-        
-          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />
-        <section className="netflixOrginalsSection">
-          <h3 className="netflixOrginalsTitle">Netflix Originals</h3>
-          <div className="netflixOrginalsMoviesAndTVShows">
-            {netflixOriginal.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.moviePoster} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">Trending Now</h3>
-          <div className="MoviesAndTVShows">
-            {netflixTrending.map((movie) => {
-                return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-              })}
-          </div>
-        </section>
-        
-        <section className="Section">
-          <h3 className="Title">Comedies</h3>
-          <div className="MoviesAndTVShows">
-            {comedies.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">Dramas</h3>
-          <div className="MoviesAndTVShows">
-            {dramas.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">Mystery</h3>
-          <div className="MoviesAndTVShows">
-            {mysteries.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">TV Movies</h3>
-          <div className="MoviesAndTVShows">
-            {tvMovies.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
+        {isLoading ? <Loading /> : <Netflix 
+          mainMovie={mainMovie}
+          netflixOriginal={netflixOriginal}
+          netflixTrending={netflixTrending}
+          comedies={comedies} dramas={dramas} 
+          mysteries={mysteries} tvMovies={tvMovies} />}
   
       </div>
     )
