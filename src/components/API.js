@@ -52,64 +52,78 @@ export default function API() {
                 
                 
                 for (let i = 0; i < 1; i++) {
-                  let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
-                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
-                  let movieId = allDataNetflixTrending[i].id;
-                  setMainMovie({ movieTitle, movieBackdrop, movieId })
+                  if (allDataNetflixTrending[i].backdrop_path !== null) {
+                    let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                    let movieId = allDataNetflixTrending[i].id;
+                    setMainMovie({ movieTitle, movieBackdrop, movieId })
+                  }
                 }
 
                 let NetflixTrending = [];
 
                 for (let i = 1; i < allDataNetflixTrending.length; i++) {
-                  let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
-                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
-                  let movieId = allDataNetflixTrending[i].id;
-                  NetflixTrending.push({ movieTitle, movieBackdrop, movieId });
+                  if (allDataNetflixTrending[i].backdrop_path !== null) {
+                    let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                    let movieId = allDataNetflixTrending[i].id;
+                    NetflixTrending.push({ movieTitle, movieBackdrop, movieId });
+                  }
                 }
                 
                 let NetflixOriginal = [];
 
                 allDataNetflixOriginal.forEach((movie) => {
-                  let movieTitle = movie.name || movie.title;
-                  let moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
-                  let movieId = movie.id;
-                  NetflixOriginal.push({ movieTitle, moviePoster, movieId });
+                  if (movie.poster_path !== null) {
+                    let movieTitle = movie.name || movie.title;
+                    let moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+                    let movieId = movie.id;
+                    NetflixOriginal.push({ movieTitle, moviePoster, movieId });
+                  }
                 })
 
                 let NetflixComedies = [];
 
                 allDataComedies.forEach((movie) => {
-                  let movieTitle = movie.name || movie.title;
-                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
-                  let movieId = movie.id;
-                  NetflixComedies.push({ movieTitle, movieBackdrop, movieId });
+                  if (movie.backdrop_path !== null) {
+                    let movieTitle = movie.name || movie.title;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieId = movie.id;
+                    NetflixComedies.push({ movieTitle, movieBackdrop, movieId });
+                    }
                 })
 
                 let NetflixDramas = [];
 
                 allDataDramas.forEach((movie) => {
-                  let movieTitle = movie.name || movie.title;
-                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
-                  let movieId = movie.id;
-                  NetflixDramas.push({ movieTitle, movieBackdrop, movieId });
+                  if (movie.backdrop_path !== null) {
+                    let movieTitle = movie.name || movie.title;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieId = movie.id;
+                    NetflixDramas.push({ movieTitle, movieBackdrop, movieId });
+                  }
                 })
 
                 let NetflixTVMovies = [];
 
                 allDataTVMovies.forEach((movie) => {
-                  let movieTitle = movie.name || movie.title;
-                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
-                  let movieId = movie.id;
-                  NetflixTVMovies.push({ movieTitle, movieBackdrop, movieId });
+                  if (movie.backdrop_path !== null) {
+                    let movieTitle = movie.name || movie.title;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieId = movie.id;
+                    NetflixTVMovies.push({ movieTitle, movieBackdrop, movieId });
+                  }
                 })
                 
                 let NetflixMysteries = [];
 
                 allDataMysteries.forEach((movie) => {
-                  let movieTitle = movie.name || movie.title;
-                  let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
-                  let movieId = movie.id;
-                  NetflixMysteries.push({ movieTitle, movieBackdrop, movieId });
+                  if (movie.backdrop_path !== null) {
+                    let movieTitle = movie.name || movie.title;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieId = movie.id;
+                    NetflixMysteries.push({ movieTitle, movieBackdrop, movieId });
+                  }
                 })
 
                 setNetflixTrending(NetflixTrending);
