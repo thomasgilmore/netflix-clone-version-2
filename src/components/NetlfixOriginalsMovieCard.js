@@ -1,5 +1,4 @@
 import React from 'react';
-import './moviecard.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function NetflixOriginalsMovieCard(props) {

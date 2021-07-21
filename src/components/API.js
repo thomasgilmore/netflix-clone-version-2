@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './api.css';
+// import './api.css';
 import axios from 'axios';
 import Loading from './Loading';
 // import Navbar from './Navbar';
