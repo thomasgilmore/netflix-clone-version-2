@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './api.css';
 import axios from 'axios';
-import Loading from './Loading';
+// import Loading from './Loading';
 import Navbar from './Navbar';
 import MainMovie from './MainMovie';
 import MovieCard from './MovieCard';
