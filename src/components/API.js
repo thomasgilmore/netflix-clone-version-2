@@ -120,7 +120,7 @@ export default function API() {
                 setMysteries(NetflixMysteries);
                 setTimeout(function() {
                   setIsLoading(false);
-                }, 500);
+                }, 1000);
             })
         )
     }
