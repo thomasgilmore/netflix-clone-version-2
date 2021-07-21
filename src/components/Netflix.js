@@ -3,6 +3,7 @@ import './api.css';
 import Navbar from './Navbar';
 import MainMovie from './MainMovie';
 import MovieCard from './MovieCard';
+import NetflixOriginalsMovieCard from './NetlfixOriginalsMovieCard';
 
 export default function Netflix(props) {
     return (
@@ -15,7 +16,7 @@ export default function Netflix(props) {
         <h3 className="netflixOrginalsTitle">Netflix Originals</h3>
         <div className="netflixOrginalsMoviesAndTVShows">
           {props.netflixOriginal.map((movie) => {
-            return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.moviePoster} />
+            return <NetflixOriginalsMovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.moviePoster} />
           })}
         </div>
       </section>
