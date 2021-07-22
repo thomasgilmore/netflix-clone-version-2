@@ -52,7 +52,7 @@ export default function API() {
                 for (let i = 0; i < 1; i++) {
                   if (allDataNetflixTrending[i].backdrop_path !== null) {
                     let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
-                    let movieBackdrop = "https://image.tmdb.org/t/p/w1280" + allDataNetflixTrending[i].backdrop_path;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
                     let movieId = allDataNetflixTrending[i].id;
                     setMainMovie({ movieTitle, movieBackdrop, movieId })
                   }
@@ -74,7 +74,7 @@ export default function API() {
                 allDataNetflixOriginal.forEach((movie) => {
                   if (movie.poster_path !== null) {
                     let movieTitle = movie.name || movie.title;
-                    let moviePoster = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+                    let moviePoster = "https://image.tmdb.org/t/p/w342" + movie.poster_path;
                     let movieId = movie.id;
                     NetflixOriginal.push({ movieTitle, moviePoster, movieId });
                   }
