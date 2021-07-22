@@ -1,9 +1,11 @@
 import React from 'react';
 import './api.css';
-import Navbar from './Navbar';
-import MainMovie from './MainMovie';
-import MovieCard from './MovieCard';
-import NetflixOriginalsMovieCard from './NetlfixOriginalsMovieCard';
+import loadable from '@loadable/component'
+
+const Navbar = loadable(() => import('./Navbar'))
+const MainMovie = loadable(() => import('./MainMovie'))
+const MovieCard = loadable(() => import('./MovieCard'))
+const NetflixOriginalsMovieCard = loadable(() => import('./NetflixOriginalsMovieCard'))
 
 export default function Netflix(props) {
     return (
