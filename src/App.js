@@ -1,5 +1,7 @@
 import './App.css'
-import API from './components/API';
+import loadable from '@loadable/component';
+
+const API = loadable(() => import('./components/API'));
 
 function App() {
   return (
