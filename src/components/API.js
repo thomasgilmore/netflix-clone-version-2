@@ -53,8 +53,11 @@ export default function API() {
                   if (allDataNetflixTrending[i].backdrop_path !== null) {
                     let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
                     let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                    let smallImage = "https://image.tmdb.org/t/p/w300" + allDataNetflixTrending[i].backdrop_path;
+                    let mediumImage = "https://image.tmdb.org/t/p/w780" + allDataNetflixTrending[i].backdrop_path;
+                    let largeImage = "https://image.tmdb.org/t/p/w1280" + allDataNetflixTrending[i].backdrop_path;
                     let movieId = allDataNetflixTrending[i].id;
-                    setMainMovie({ movieTitle, movieBackdrop, movieId })
+                    setMainMovie({ movieTitle, movieBackdrop, movieId, smallImage, mediumImage, largeImage })
                   }
                 }
 

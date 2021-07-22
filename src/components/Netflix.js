@@ -13,7 +13,7 @@ export default function Netflix(props) {
         <Navbar />
 
         
-        <MainMovie key={props.mainMovie.movieId} movieTitle={props.mainMovie.movieTitle} movieBackdrop={props.mainMovie.movieBackdrop} />
+        <MainMovie key={props.mainMovie.movieId} movieTitle={props.mainMovie.movieTitle} movieBackdrop={props.mainMovie.movieBackdrop}  smallImage={props.mainMovie.smallImage} mediumImage={props.mainMovie.mediumImage} largeImage={props.mainMovie.largeImage} />
       <section className="netflixOrginalsSection">
         <h3 className="netflixOrginalsTitle">Netflix Originals</h3>
         <div className="netflixOrginalsMoviesAndTVShows">
