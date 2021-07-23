@@ -39,15 +39,6 @@ export default function API() {
                 const allDataDramas = allData[3].data.results;
                 const allDataTVMovies = allData[4].data.results;
                 const allDataMysteries = allData[5].data.results;
-
-                console.log(allDataNetflixTrending);
-                console.log(allDataNetflixOriginal);
-                console.log(allDataComedies);
-                console.log(allDataDramas);
-                console.log(allDataTVMovies);
-                console.log(allDataMysteries);
-                
-                
                 
                 for (let i = 0; i < 1; i++) {
                   if (allDataNetflixTrending[i].backdrop_path !== null) {
