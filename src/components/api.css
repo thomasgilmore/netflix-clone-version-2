@@ -1,134 +1,129 @@
 .netflixOrginalsSection {
-    color: white;
-    background-color: #141414;
-    text-align: left;
-    padding-top: 30px;
+  color: white;
+  background-color: #141414;
+  text-align: left;
+  padding-top: 30px;
 }
 
 .netflixOrginalsTitle {
-    margin-left: 54px;
+  margin-left: 54px;
 }
 
 .netflixOrginalsMoviesAndTVShows {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px 0;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .netflixOrginalsMoviesAndTVShows::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .netflixOrginalsMoviesAndTVShows > img:first-child {
-    margin: 15px 5px 15px 54px;
+  margin: 15px 5px 15px 54px;
 }
 
 .netflixOrginalsMoviesAndTVShows > img {
-    margin: 15px 5px;
-    transition: transform .2s;
+  margin: 15px 5px;
+  transition: transform 0.2s;
 }
 
 .netflixOrginalsMoviesAndTVShows > img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .Section {
-    color: white;
-    background-color: #141414;
-    text-align: left;
-    padding-top: 30px;
+  color: white;
+  background-color: #141414;
+  text-align: left;
+  padding-top: 30px;
 }
 
 .Title {
-    margin-left: 54px;
+  margin-left: 54px;
 }
 
 .MoviesAndTVShows {
-    display: flex;
-    overflow-x: auto;
-    padding: 2px 0;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;
+  display: flex;
+  overflow-x: auto;
+  padding: 2px 0;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .MoviesAndTVShows::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .MoviesAndTVShows > img:first-child {
-    border-radius: 5px;
-    margin: 10px 5px 10px 54px;
+  border-radius: 5px;
+  margin: 10px 5px 10px 54px;
 }
 
 .MoviesAndTVShows > img {
-    border-radius: 5px;
-    margin: 10px 5px;
-    transition: transform .2s;
+  border-radius: 5px;
+  margin: 10px 5px;
+  transition: transform 0.2s;
 }
 
 .MoviesAndTVShows > img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 @media (min-width: 200px) {
-    .netflixOrginalsTitle {
-        margin-left: 20px;
-    }
-    
-    .netflixOrginalsMoviesAndTVShows > img:first-child {
-        margin: 15px 5px 15px 20px;
-    }
-    
-    .Title {
-        margin-left: 20px;
-    }
-    
-    .MoviesAndTVShows > img:first-child {
-        border-radius: 5px;
-        margin: 10px 5px 10px 20px;
-    }
-    
+  .netflixOrginalsTitle {
+    margin-left: 20px;
+  }
+
+  .netflixOrginalsMoviesAndTVShows > img:first-child {
+    margin: 15px 5px 15px 20px;
+  }
+
+  .Title {
+    margin-left: 20px;
+  }
+
+  .MoviesAndTVShows > img:first-child {
+    border-radius: 5px;
+    margin: 10px 5px 10px 20px;
+  }
 }
 
 @media (min-width: 600px) {
-    
-    .netflixOrginalsTitle {
-        margin-left: 23px;
-    }
-    
-    .netflixOrginalsMoviesAndTVShows > img:first-child {
-        margin: 15px 5px 15px 23px;
-    }
-    
-    .Title {
-        margin-left: 23px;
-    }
-    
-    .MoviesAndTVShows > img:first-child {
-        border-radius: 5px;
-        margin: 10px 5px 10px 23px;
-    }
-    
+  .netflixOrginalsTitle {
+    margin-left: 23px;
+  }
+
+  .netflixOrginalsMoviesAndTVShows > img:first-child {
+    margin: 15px 5px 15px 23px;
+  }
+
+  .Title {
+    margin-left: 23px;
+  }
+
+  .MoviesAndTVShows > img:first-child {
+    border-radius: 5px;
+    margin: 10px 5px 10px 23px;
+  }
 }
 
 @media (min-width: 1000px) {
-    
-    .netflixOrginalsTitle {
-        margin-left: 54px;
-    }
-    
-    .netflixOrginalsMoviesAndTVShows > img:first-child {
-        margin: 15px 5px 15px 54px;
-    }
-    
-    .Title {
-        margin-left: 54px;
-    }
-    
-    .MoviesAndTVShows > img:first-child {
-        margin: 10px 5px 10px 54px;
-    }
+  .netflixOrginalsTitle {
+    margin-left: 54px;
+  }
 
+  .netflixOrginalsMoviesAndTVShows > img:first-child {
+    margin: 15px 5px 15px 54px;
+  }
+
+  .Title {
+    margin-left: 54px;
+  }
+
+  .MoviesAndTVShows > img:first-child {
+    margin: 10px 5px 10px 54px;
+  }
 }

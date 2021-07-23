@@ -1,31 +1,31 @@
 .loadingDiv {
-    height: 100vh;
-    background-color: #212529;
+  height: 100vh;
+  background-color: #212529;
 }
 
 .lineLoadingNotMoving {
-    position: absolute;
-    top: 50%;
-    margin-top: -125px;
-    margin-left: -125px;
+  position: absolute;
+  top: 50%;
+  margin-top: -125px;
+  margin-left: -125px;
 }
 
 .lineLoading {
-    position: absolute;
-    top: 50%;
-    margin-top: -125px;
-    margin-left: -125px;
-    animation-name: spin;
-    animation-duration: 5000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; 
+  position: absolute;
+  top: 50%;
+  margin-top: -125px;
+  margin-left: -125px;
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes spin {
-    from {
-        transform:rotate(50deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+  from {
+    transform: rotate(50deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

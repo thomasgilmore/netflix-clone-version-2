@@ -1,103 +1,107 @@
 nav {
-    background: #141414;
+  background: #141414;
 }
 
-a.nav-link, a.navLink2:hover {
-    color: #E5E5E5;
+a.nav-link,
+a.navLink2:hover {
+  color: #e5e5e5;
 }
 
-a.active, a.active:hover {
-    color: #FFFFFF;
-    font-weight: bold;
+a.active,
+a.active:hover {
+  color: #ffffff;
+  font-weight: bold;
 }
 
 a.navLink:hover {
-    color: #b3b3b3;
+  color: #b3b3b3;
 }
 
 .navbar {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .nav-item {
-    font-size: 20px;
-    margin: 0 5px;
+  font-size: 20px;
+  margin: 0 5px;
 }
 
 .search {
-    margin: 4px 2px 0 5px;
+  margin: 4px 2px 0 5px;
 }
 
 .dvd {
-    margin: 4px 5px 0 5px;
+  margin: 4px 5px 0 5px;
 }
 
 .netflixLogo {
-    margin-left: 30px;
-    width: 150px;
+  margin-left: 30px;
+  width: 150px;
 }
 
 .profileImage {
-    margin-right: 30px;
-    width: 30px;
+  margin-right: 30px;
+  width: 30px;
 }
 
 @media (min-width: 200px) {
-    .netflixLogo {
-        margin: 0;
-        width: 100px;
-    } 
+  .netflixLogo {
+    margin: 0;
+    width: 100px;
+  }
 }
 
 @media (min-width: 600px) {
-    .netflixLogo {
-        margin: 0;
-        width: 125px;
-    } 
+  .netflixLogo {
+    margin: 0;
+    width: 125px;
+  }
 }
 
 @media (min-width: 1000px) {
-    nav {
-        background: #141414;
-    }
-    
-    a.nav-link, a.navLink2:hover {
-        color: #E5E5E5;
-    }
-    
-    a.active, a.active:hover {
-        color: #FFFFFF;
-        font-weight: bold;
-    }
-    
-    a.navLink:hover {
-        color: #b3b3b3;
-    }
-    
-    .navbar {
-        padding: 0 !important;
-    }
-    
-    .nav-item {
-        font-size: 20px;
-        margin: 0 5px;
-    }
-    
-    .search {
-        margin: 4px 2px 0 5px;
-    }
-    
-    .dvd {
-        margin: 4px 5px 0 5px;
-    }
-    
-    .netflixLogo {
-        margin-left: 30px;
-        width: 150px;
-    }
-    
-    .profileImage {
-        margin-right: 30px;
-        width: 30px;
-    }
+  nav {
+    background: #141414;
+  }
+
+  a.nav-link,
+  a.navLink2:hover {
+    color: #e5e5e5;
+  }
+
+  a.active,
+  a.active:hover {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  a.navLink:hover {
+    color: #b3b3b3;
+  }
+
+  .navbar {
+    padding: 0 !important;
+  }
+
+  .nav-item {
+    font-size: 20px;
+    margin: 0 5px;
+  }
+
+  .search {
+    margin: 4px 2px 0 5px;
+  }
+
+  .dvd {
+    margin: 4px 5px 0 5px;
+  }
+
+  .netflixLogo {
+    margin-left: 30px;
+    width: 150px;
+  }
+
+  .profileImage {
+    margin-right: 30px;
+    width: 30px;
+  }
 }
