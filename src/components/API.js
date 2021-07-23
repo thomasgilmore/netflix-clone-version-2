@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './api.css';
 import axios from 'axios';
-import Loading from './Loading';
-import Navbar from './Navbar';
-import MainMovie from './MainMovie';
-import MovieCard from './MovieCard';
+import loadable from '@loadable/component';
+
+const Netflix = loadable(() => import('./Netflix'));
+const Loading = loadable(() => import('./Loading'));
 
 require('dotenv').config()
 
@@ -54,8 +53,11 @@ export default function API() {
                   if (allDataNetflixTrending[i].backdrop_path !== null) {
                     let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
                     let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                    let smallImage = "https://image.tmdb.org/t/p/w300" + allDataNetflixTrending[i].backdrop_path;
+                    let mediumImage = "https://image.tmdb.org/t/p/w780" + allDataNetflixTrending[i].backdrop_path;
+                    let largeImage = "https://image.tmdb.org/t/p/w1280" + allDataNetflixTrending[i].backdrop_path;
                     let movieId = allDataNetflixTrending[i].id;
-                    setMainMovie({ movieTitle, movieBackdrop, movieId })
+                    setMainMovie({ movieTitle, movieBackdrop, movieId, smallImage, mediumImage, largeImage })
                   }
                 }
 
@@ -64,7 +66,7 @@ export default function API() {
                 for (let i = 1; i < allDataNetflixTrending.length; i++) {
                   if (allDataNetflixTrending[i].backdrop_path !== null) {
                     let movieTitle = allDataNetflixTrending[i].name || allDataNetflixTrending[i].title;
-                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + allDataNetflixTrending[i].backdrop_path;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/w342" + allDataNetflixTrending[i].backdrop_path;
                     let movieId = allDataNetflixTrending[i].id;
                     NetflixTrending.push({ movieTitle, movieBackdrop, movieId });
                   }
@@ -75,7 +77,7 @@ export default function API() {
                 allDataNetflixOriginal.forEach((movie) => {
                   if (movie.poster_path !== null) {
                     let movieTitle = movie.name || movie.title;
-                    let moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+                    let moviePoster = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
                     let movieId = movie.id;
                     NetflixOriginal.push({ movieTitle, moviePoster, movieId });
                   }
@@ -86,7 +88,7 @@ export default function API() {
                 allDataComedies.forEach((movie) => {
                   if (movie.backdrop_path !== null) {
                     let movieTitle = movie.name || movie.title;
-                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/w342" + movie.backdrop_path;
                     let movieId = movie.id;
                     NetflixComedies.push({ movieTitle, movieBackdrop, movieId });
                     }
@@ -97,7 +99,7 @@ export default function API() {
                 allDataDramas.forEach((movie) => {
                   if (movie.backdrop_path !== null) {
                     let movieTitle = movie.name || movie.title;
-                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/w342" + movie.backdrop_path;
                     let movieId = movie.id;
                     NetflixDramas.push({ movieTitle, movieBackdrop, movieId });
                   }
@@ -108,7 +110,7 @@ export default function API() {
                 allDataTVMovies.forEach((movie) => {
                   if (movie.backdrop_path !== null) {
                     let movieTitle = movie.name || movie.title;
-                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/w342" + movie.backdrop_path;
                     let movieId = movie.id;
                     NetflixTVMovies.push({ movieTitle, movieBackdrop, movieId });
                   }
@@ -119,7 +121,7 @@ export default function API() {
                 allDataMysteries.forEach((movie) => {
                   if (movie.backdrop_path !== null) {
                     let movieTitle = movie.name || movie.title;
-                    let movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+                    let movieBackdrop = "https://image.tmdb.org/t/p/w342" + movie.backdrop_path;
                     let movieId = movie.id;
                     NetflixMysteries.push({ movieTitle, movieBackdrop, movieId });
                   }
@@ -143,60 +145,12 @@ export default function API() {
     }, [])
     return (
       <div>
-        {isLoading ? null : <Navbar />}
-
-        {isLoading ? 
-          <Loading /> :
-          <MainMovie key={mainMovie.movieId} movieTitle={mainMovie.movieTitle} movieBackdrop={mainMovie.movieBackdrop} />}
-        <section className="netflixOrginalsSection">
-          <h3 className="netflixOrginalsTitle">Netflix Originals</h3>
-          <div className="netflixOrginalsMoviesAndTVShows">
-            {netflixOriginal.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.moviePoster} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">Trending Now</h3>
-          <div className="MoviesAndTVShows">
-            {netflixTrending.map((movie) => {
-                return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-              })}
-          </div>
-        </section>
-        
-        <section className="Section">
-          <h3 className="Title">Comedies</h3>
-          <div className="MoviesAndTVShows">
-            {comedies.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">Dramas</h3>
-          <div className="MoviesAndTVShows">
-            {dramas.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">Mystery</h3>
-          <div className="MoviesAndTVShows">
-            {mysteries.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
-        <section className="Section">
-          <h3 className="Title">TV Movies</h3>
-          <div className="MoviesAndTVShows">
-            {tvMovies.map((movie) => {
-              return <MovieCard key={movie.movieId} movieTitle={movie.movieTitle} movieBackdrop={movie.movieBackdrop} />
-            })}
-          </div>
-        </section>
+        {isLoading ? <Loading /> : <Netflix 
+          mainMovie={mainMovie}
+          netflixOriginal={netflixOriginal}
+          netflixTrending={netflixTrending}
+          comedies={comedies} dramas={dramas} 
+          mysteries={mysteries} tvMovies={tvMovies} />}
   
       </div>
     )
