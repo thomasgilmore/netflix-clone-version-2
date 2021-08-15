@@ -10,6 +10,7 @@
   position: absolute;
   bottom: 200px;
   left: 75px;
+  text-shadow: 2px 2px 5px #858585;
 }
 
 .movieTitle > h1 {
